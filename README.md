@@ -2,19 +2,21 @@
 ENSE 489 - Social and Economic Impacts of Artificial Intelligence Project
 
 If the environment isn't starting, do the following:
-Open PowerShell as an administrator. To do this, right-click on the PowerShell icon and select "Run as administrator."
+1. Open PowerShell as an administrator. To do this, right-click on the PowerShell icon and select "Run as administrator."
 
-In the elevated PowerShell window, run the following command to check the current execution policy:
+2. In the elevated PowerShell window, run the following command to check the current execution policy:
+```
 Get-ExecutionPolicy
-
-If the output is "Restricted," it means that scripts are currently disabled. To enable script execution, run the following command:
+```
+3. If the output is "Restricted," it means that scripts are currently disabled. To enable script execution, run the following command:
+```
 Set-ExecutionPolicy RemoteSigned
-
+```
 This command allows the execution of local scripts but requires that all downloaded scripts be signed by a trusted publisher.
 
-You will be prompted to confirm the change. Type "Y" and press Enter.
+4. You will be prompted to confirm the change. Type "Y" and press Enter.
 
-After setting the execution policy, try running the venv\Scripts\activate command again in your PowerShell window.
+5. After setting the execution policy, try running the venv\Scripts\activate command again in your PowerShell window.
 
 By adjusting the execution policy, you should be able to activate your virtual environment successfully.
 

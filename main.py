@@ -8,9 +8,9 @@ model = load_model('models/model.h5')
 # Set the image dimensions
 img_width, img_height = 100, 100
 
-# Make predictions on new images
 new_images = []
-image_paths = ['./input/healthy1.png']  # Replace with your image paths
+# input the image you want to test
+image_paths = ['./input/healthy3.png']  
 
 for image_path in image_paths:
     img = cv2.imread(image_path)
@@ -21,12 +21,12 @@ new_images = np.array(new_images)
 new_images = new_images.astype('float32') / 255.0
 predictions = model.predict(new_images)
 
-# Classify the predictions
-threshold = 0.5  # Set the threshold probability
+# Set the threshold probability
+threshold = 0.5  
 
-for prediction in predictions:
+for i, prediction in enumerate(predictions):
     probability = prediction[0]
     if probability >= threshold:
-        print("The eye is infected.")
+        print(f"Image {i+1}: The eye is infected with a probability of {probability:.2f}.")
     else:
-        print("The eye is not infected.")
+        print(f"Image {i+1}: The eye is not infected with a probability of {1 - probability:.2f}.")
